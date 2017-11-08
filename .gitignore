@@ -6,4 +6,7 @@
 *.pyc
 venv
 **/**/static
+**/**/.DS_Store
+**/**/.idea
+
 
