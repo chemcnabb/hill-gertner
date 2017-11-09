@@ -8,5 +8,5 @@ venv
 **/**/static
 **/**/.DS_Store
 **/**/.idea
-
-
+*/*/local_settings.*
+local_settings.*

@@ -11,9 +11,14 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+try:
+    from local_settings import *
+    no_local = False
+except ImportError:
+    no_local = True
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)) ) + "/hillandgertner.com"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)) )
 
 
 # Quick-start development settings - unsuitable for production
@@ -24,8 +29,8 @@ SECRET_KEY = 'hmf7bytj%6dq(q-xvs@mhu+_o^6(ffg8&a@s%_#iu8&*=1)dz5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = ['hillandgertner.com', 'www.hillandgertner.com']
+if no_local:
+    ALLOWED_HOSTS = ['hillandgertner.com', 'www.hillandgertner.com']
 
 
 # Application definition
@@ -37,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'hillandgertner.pages',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +60,7 @@ ROOT_URLCONF = 'hillandgertner.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'hillandgertner/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,17 +85,17 @@ WSGI_APPLICATION = 'hillandgertner.wsgi.application'
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }'''
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hillgertner',
-        'USER': 'lorger2',
-        'PASSWORD': 'enrol2015',
-        'HOST': 'mysql.hillandgertner.com',
-        'PORT': '3306',
+if no_local:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'hillgertner',
+            'USER': 'lorger2',
+            'PASSWORD': 'enrol2015',
+            'HOST': 'mysql.hillandgertner.com',
+            'PORT': '3306',
+        }
     }
-}
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
@@ -127,4 +133,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.dirname(BASE_DIR) + '/public/static/'
+STATIC_ROOT = BASE_DIR + '/public/static/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR + '/public/media/'
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
