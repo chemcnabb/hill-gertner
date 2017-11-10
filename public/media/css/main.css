@@ -77,11 +77,12 @@ button, button:focus {
     background-repeat:no-repeat;
     background-position-x: center;
     min-height: 100vh;
+    background-position-y:25.8vh;
 }
 
 .work{
-    background-image:url("../img/home-bg.jpg");
-    background-position-y:25.8vh;
+
+
 
 }
 
