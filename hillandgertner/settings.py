@@ -149,7 +149,8 @@ TINYMCE_DEFAULT_CONFIG = {
     'theme': "advanced",
     'cleanup_on_startup': True,
     'theme_advanced_buttons1': 'bold,italic,underline,bullist,numlist,|,link,unlink, code',
-
+    'width':'100%',
+    'height':300,
     'custom_undo_redo_levels': 10,
 }
 
