@@ -36,11 +36,9 @@
             <div id="navigation">
                 <!--navigation goes here-->
                 <ul id="nav-drawer">
-                    <li><a href="#home">company</a></li>
-                    <li><a href="#services">services</a></li>
-                    <li><a href="#gertner">lorne gertner</a></li>
-                    <li><a href="#brands">brands</a></li>
-
+                    {% for page in pages %}
+                    <li><a href="#{{ page.slug }}">{{ page.page_name }}</a></li>
+                    {% endfor %}
                 </ul>
             </div>
         </li>
