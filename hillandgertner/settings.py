@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'hillandgertner.pages',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
@@ -142,3 +143,14 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
+
+TINYMCE_DEFAULT_CONFIG = {
+    'plugins': "table,spellchecker,paste,searchreplace",
+    'theme': "advanced",
+    'cleanup_on_startup': True,
+    'theme_advanced_buttons1': 'bold,italic,underline,bullist,numlist,|,link,unlink, code',
+
+    'custom_undo_redo_levels': 10,
+}
+
+TINYMCE_JS_URL = '/static/tiny_mce/tiny_mce_src.js'

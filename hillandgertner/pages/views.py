@@ -1,15 +1,16 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
+from django.http import HttpResponse
 from django.shortcuts import render
-from django.views import generic
+from django.views.generic import TemplateView
 from .models import Page
 
 # Create your views here.
-class IndexView(generic.ListView):
+class IndexView(TemplateView):
     template_name = 'main.html'
-    context_object_name = 'latest_question_list'
+    pages = Page.objects.order_by('-order')
 
-    def get_queryset(self):
-        """Return the last five published questions."""
-        return Page.objects.order_by('-pub_date')[:5]
+    def get_context_data(self, **kwargs):
+        context = super(IndexView, self).get_context_data(**kwargs)
+        context['pages'] = self.pages
+        return context

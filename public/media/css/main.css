@@ -72,14 +72,14 @@ button, button:focus {
 
 }
 
-.home, .services, .manufacturing, .gertner, .brands, .real-estate{
+.page{
     background-size:cover;
     background-repeat:no-repeat;
     background-position-x: center;
     min-height: 100vh;
 }
 
-.home{
+.work{
     background-image:url("../img/home-bg.jpg");
     background-position-y:25.8vh;
 
