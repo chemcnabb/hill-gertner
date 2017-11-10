@@ -68,7 +68,7 @@
                 <div class="page-title"><h1>a talent-based merchant bank</h1></div>
                 <div class="page-body">
                 <section class="row text-justify placeholders">
-                    <div class="col-11 placeholder">
+                    <div class="col-{% if page.num_columns %}{{ page.num_columns }}{% else %}11{% endif %} placeholder">
                         {% autoescape off %}{{ page.copy }}{% endautoescape %}
                     </div>
 
