@@ -6,7 +6,7 @@ $(document).ready(function(){
     $('.hamburger').click(function(){
         $(this).toggleClass('is-active');
     });
-    $( "#nav-drawer" ).hide();
+    //$( "#nav-drawer" ).hide();
     $( "#nav-toggle" ).click(function() {
 
         $( "#nav-drawer" ).slideToggle( 350, function() {

@@ -296,7 +296,7 @@ strong{
 }
 
 #navigation ul{
-    display:none;
+    /*display:none;*/
 }
 #navigation ul, #navigation ul li{
     list-style-type: none;
