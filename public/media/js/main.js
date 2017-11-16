@@ -16,6 +16,28 @@ $(document).ready(function(){
 });
 
 
+// $(document).ready(function() {
+
+    // init controller
+// var controller = new ScrollMagic.Controller();
+//
+// // create a scene
+// new ScrollMagic.Scene({
+//         duration: 1500,    // the scene should last for a scroll distance of 100px
+//         offset: 674        // start this scene after scrolling for 50px
+//     })
+//     .setPin("#company") // pins the element for the the scene's duration
+//     .addTo(controller); // assign the scene to the controller
+// });
+//
+
+
+
+
+
+
+
+
 $(document).ready(function(){
     // Cache selectors
     var lastId,
@@ -65,3 +87,5 @@ $(document).ready(function(){
         }
     });
 });
+
+

@@ -16,6 +16,7 @@
 
     <!-- Custom styles for this template -->
     <link href="/media/css/main.css" rel="stylesheet">
+    {% block extra_CSS %}{% endblock %}
 </head>
 
 <body>
@@ -27,9 +28,10 @@
 <script>window.jQuery || document.write('<script src="/media/js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
 <script src="/media/js/vendor/popper.min.js"></script>
 <script src="/media/js/bootstrap.min.js"></script>
-<script src="/media/js/vendor/greensock/TimelineMax.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+<script src="/media/js/vendor/greensock/TweenMax.min.js"></script>
+<script src="/media/js/vendor/scrollmagic/uncompressed/ScrollMagic.js"></script>
+<script src="/media/js/vendor/scrollmagic/uncompressed/plugins/debug.addIndicators.js"></script>
+<script src="/media/js/vendor/scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
 <script src="/media/js/main.js"></script>
 </body>
 </html>

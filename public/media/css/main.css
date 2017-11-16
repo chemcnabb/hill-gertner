@@ -26,6 +26,39 @@ button, button:focus {
 .blah{
     outline-color: blue;
 }
+
+
+/*.header-back{*/
+        /*height:25.8vh;*/
+    /*margin-bottom:-25.8vh;*/
+/*}*/
+/*.header-logo{*/
+    /*height:25.8vh;*/
+/*}*/
+/*.page{*/
+    /*margin-top: 25.8vh;*/
+/*}*/
+/*#page-header{*/
+    /*height: 25.8vh;*/
+/*}*/
+
+
+
+
+
+
+#page-header{
+position: fixed;
+  top: 0;
+  /* left: 16.7%; */
+  /* padding-left: 78px !important; */
+  right: 0;
+  width: 85vw;
+  /* left: 16%; */
+  background-color: #fff;
+  z-index: 995;
+
+}
 .landing{
     /*height:100vh;*/
     /*width:100%;*/
@@ -36,7 +69,7 @@ button, button:focus {
 }
 
 .landing-body{
-    background-image:url("../img/landing-bg-design.png");
+    /*background-image:url("../img/landing-bg-design.png");*/
     background-repeat: no-repeat;
     background-size:contain;
     height:100vh;
@@ -77,49 +110,24 @@ button, button:focus {
     background-repeat:no-repeat;
     background-position-x: center;
     min-height: 100vh;
-    background-position-y:25.8vh;
-}
-
-.work{
-
-
-
-}
-
-.services{
-    background-image:url("../img/home-bg.jpg");
-    background-position-y:25.8vh;
-    height: 100%;
-}
-
-.manufacturing{
-    background-image:url("../img/home-bg.jpg");
-    background-position-y:25.8vh;
-}
-
-.brands{
-    background-image:url("../img/home-bg.jpg");
-    background-position-y:25.8vh;
-    margin-top: 1px;
-
-}
-
-.real-estate{
-    background-image:url("../img/home-bg.jpg");
-    background-position-y:25.8vh;
+    height:100%;
+    background-color: rgba(89,89,89,0.1);
 }
 
 
-.gertner{
-    background-image:url("../img/lorne_gertner.png");
-    background-position-y:0;
+
+
+
+
+.lorne-gernter{
+
+    background-position-y:0 !important;
     background-position-x: 78%;
     margin-bottom: 0;
+      /*height: 112vh;*/
 }
 
-.brands h1{
-    margin-top:38px;
-}
+
 
 hr{
     border-top: 5px solid #e80000;
@@ -191,7 +199,7 @@ strong{
 
 .header-logo {
     background-color:#d30000 !important;
-    height:25.8vh;
+
 }
 
 .logo {
@@ -266,10 +274,15 @@ strong{
 }
 
 .page-title{
-    height:19.6vh;
+      height: 19.9vh;
+  position: relative;
+  right: 0;
+  padding-right: 2%;
+  padding-left: 2%;
 }
 .page-body{
-
+  /*top: 25.6vh;*/
+  position: relative;
 }
 /*
 * bootstrap overrides
@@ -302,6 +315,7 @@ strong{
 .col-home-nav{
     flex: 0 0 16%;
     max-width: 16%;
+    z-index:997;
 }
 
 .col-home-content{
@@ -310,8 +324,7 @@ strong{
 }
 
 .header-back{
-    height:25.8vh;
-    margin-bottom:-25.8vh;
+
     background-color: rgba(255,255,255,0.8);
 }
 

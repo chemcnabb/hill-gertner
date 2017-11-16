@@ -1,5 +1,25 @@
 
 {% extends "base.html" %}
+
+{% block extra_CSS %}
+    <style>
+.header-back{
+        height:{{ globals.header_height }}vh;
+    margin-bottom:-{{ globals.header_height }}vh;
+}
+.header-logo{
+    height:{{ globals.header_height }}vh;
+}
+.page{
+    margin-top: {{ globals.header_height }}vh;
+}
+#page-header{
+    height: {{ globals.header_height }}vh;
+}
+</style>
+{% endblock %}
+
+
 {% block content %}
 
 <div class="landing">
@@ -15,7 +35,7 @@
         </div>
     </div>
 </div>
-
+<div id="trigger1"></div>
 
 <nav class="col-home-nav d-none d-sm-block sidebar padding-top-0">
 
@@ -55,7 +75,9 @@
 
 </nav>
 
-
+<div id="page-header" class="pt-3">
+                <div class="page-title"><h1>a talent-based merchant bank</h1></div>
+</div>
 {% for page in pages %}
 
 <div id="{{ page.slug }}" class="page {{ page.slug }} section" style='background-image:url("{% if page.background_image %}{{ page.background_image.url }}{% endif %}");'>
@@ -65,9 +87,10 @@
 
 
             <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
-                <div class="page-title"><h1>a talent-based merchant bank</h1></div>
+{#                <div class="page-title"><h1>a talent-based merchant bank</h1></div>#}
                 <div class="page-body">
                 <section class="row text-justify placeholders">
+
                     <div class="col-{% if page.num_columns %}{{ page.num_columns }}{% else %}11{% endif %} placeholder">
                         {% autoescape off %}{{ page.copy }}{% endautoescape %}
                     </div>
