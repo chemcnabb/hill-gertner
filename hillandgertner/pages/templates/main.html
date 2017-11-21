@@ -20,7 +20,7 @@
             }
     @media (max-width: 575px){
     .page-scroll{
-          margin-top:-{{ globals.header_height }}vh;
+          margin-top:-{{ globals.header_height|add:"-1" }}vh;
 
     }
     }
