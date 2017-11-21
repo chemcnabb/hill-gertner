@@ -148,6 +148,13 @@ strong{
     background-color:#d30000 !important;
 top:-20px;
     position: relative;
+    display:table;
+}
+
+.header-logo a{
+      vertical-align: middle;
+  position: relative;
+  display: table-cell;
 }
 
 .logo {
