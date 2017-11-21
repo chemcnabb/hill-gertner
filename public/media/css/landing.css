@@ -1,0 +1,67 @@
+.landing{
+
+
+    background-color:#d30000;
+    z-index:999;
+    position: relative;
+}
+
+.landing-body{
+    /*background-image:url("../img/landing-bg-design.png");*/
+    background-repeat: no-repeat;
+    background-size:contain;
+    height:100vh;
+    width:100vw;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    min-height: 24em;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.landing-logo{
+    align-self: center;
+    width: 15%;
+    min-width: 150px;
+    top: 9vh;
+    position: relative;
+}
+.landing-header{
+    align-self: center;
+    top: 28vh;
+    position: relative;
+
+
+}
+
+.landing-title{
+
+    text-transform:uppercase;
+    color:#fff;
+
+}
+.landing-title > h3{
+    font-size:10px;
+    padding: 10px 10px 10px 10px;
+    border:1px solid #ed1718;
+}
+
+.landing-down-arrow{
+    width: 20%;
+    align-self: center;
+}
+
+.landing-arrow{
+    text-align: center;
+    top: 16vh;
+    position: relative;
+}

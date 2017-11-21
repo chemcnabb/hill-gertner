@@ -2,30 +2,50 @@
 
 {% block extra_CSS %}
     <style>
-        .header-back {
-            height: {{ globals.header_height }}vh;
-            margin-bottom: -{{ globals.header_height }}vh;
-        }
-
-        .header-logo {
+    .page-title{
+    height:{{ globals.header_height }}vh;
+    }
+            .header-logo {
             height: {{ globals.header_height }}vh;
         }
+            .page-content{
+            top: {{ globals.header_height }}vh;
 
-        .page {
-            margin-top: {{ globals.header_height }}vh;
-        }
+    }
+            @media (min-width: 576px) {
+                .page-content{
 
-        #page-header {
-            height: {{ globals.header_height }}vh;
-        }
-
-        .page-title.mobile-page-title {
-            top: -{{ globals.header_height }}vh;
-        }
-
+             margin-top: {{ content_margin }}px;
+    }
+            }
+    @media (max-width: 575px){
     .page-scroll{
-    top:-{{ globals.header_height }}vh;
-}
+          margin-top:-{{ globals.header_height }}vh;
+
+    }
+    }
+{#        .header-back {#}
+{#            height: {{ globals.header_height }}vh;#}
+{#            margin-bottom: -{{ globals.header_height }}vh;#}
+{#        }#}
+{##}
+
+{##}
+{#        .page {#}
+{#            margin-top: {{ globals.header_height }}vh;#}
+{#        }#}
+{##}
+{#        #page-header {#}
+{#            height: {{ globals.header_height }}vh;#}
+{#        }#}
+{##}
+{#        .page-title.mobile-page-title {#}
+{#            top: -{{ globals.header_height }}vh;#}
+{#        }#}
+{##}
+{#    .page-scroll{#}
+{#    top:-{{ globals.header_height }}vh;#}
+{#}#}
     </style>
 {% endblock %}
 
@@ -49,12 +69,11 @@
 
     <nav class="col-home-nav d-none d-sm-block sidebar padding-top-0">
 
-        <ul class="nav flex-column header-logo">
-            <li class="nav-item">
-                <a class="nav-link" href="#"><img class="logo" src="/media/img/Hill&Gertner-logo.svg"/></a>
-            </li>
+        <div class="header-logo">
 
-        </ul>
+                <a href="#"><img class="logo" src="/media/img/Hill&Gertner-logo.svg"/></a>
+
+        </div>
         <ul class="nav nav-pills flex-column">
 
             <li class="nav-item">
@@ -63,7 +82,7 @@
                             <span class="hamburger-inner"></span>
                           </span>
                 </button>
-                <div id="navigation">
+                <div id="navigation" class="page-navigation">
                     <!--navigation goes here-->
                     <ul id="nav-drawer">
                         {% for page in pages %}
@@ -96,12 +115,12 @@
         <ul class="nav nav-pills flex-column">
 
             <li class="nav-item">
-                <button id="mobile-nav-toggle" class="hamburger hamburger--collapse is-active" type="button">
+                <button id="mobile-nav-toggle" class="hamburger hamburger--collapse" type="button">
                           <span class="hamburger-box">
                             <span class="hamburger-inner"></span>
                           </span>
                 </button>
-                <div id="navigation">
+                <div id="mobile-navigation">
                     <!--navigation goes here-->
                     <ul id="mobile-nav-drawer">
                         {% for page in pages %}
@@ -120,31 +139,34 @@
 
     <div class="container-fluid full-page-title">
         <div class="row">
-            <div id="page-header" class="pt-3">
+            <div id="page-header" class="col-12">
                 <div class="page-title"><h1>a talent-based merchant bank</h1></div>
             </div>
         </div>
     </div>
     {% for page in pages %}
 
-        <div class="page {{ page.slug }} section"
-             style='background-image:url("{% if page.background_image %}{{ page.background_image.url }}{% endif %}");'>
+        <div class="page {{ page.slug }} section">
 
             <div class="container-fluid">
+            <div class="row">
+            <div class="col-12  page-title mobile-page-title"><h1>a talent-based merchant bank</h1></div>
+            </div>
                 <div class="row">
 
+                    <a id="{{ page.slug }}" class="page-scroll"></a>
+                    <main role="main" class="page-content full-page-content "
+                          style='background-image:url("{% if page.background_image %}{{ page.background_image.url }}{% endif %}");'>
 
-                    <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
-                                        <div class="page-title mobile-page-title"><h1>a talent-based merchant bank</h1></div>
 
-                        <a id="{{ page.slug }}" class="page-scroll"></a>
-                        <div class="page-body">
-                            <section class="row text-justify placeholders">
 
-                                <div class="col-
-                                        {% if page.num_columns %}{{ page.num_columns }}{% else %}11{% endif %} placeholder">
+
+                        <div class="page-body col-{% if page.num_columns %}{{ page.num_columns }}{% else %}12{% endif %}" >
+                            <section class="{% if page.text_format %}{{ page.text_format }}{% endif %} placeholders">
+
+
                                     {% autoescape off %}{{ page.copy }}{% endautoescape %}
-                                </div>
+
 
                             </section>
 

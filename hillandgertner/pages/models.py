@@ -11,7 +11,8 @@ class Page(models.Model):
     # header = models.CharField(max_length=500,blank=True, null=True)
     # subheader = models.CharField(max_length=500,blank=True, null=True)
     page_name = models.CharField(max_length=500,blank=False, null=True)
-    num_columns = models.IntegerField(blank=True, null=True)
+    num_columns = models.IntegerField(blank=True, null=True, default=12)
+    text_format = models.CharField(max_length=500,blank=True, null=True, default="text-justify")
 
     copy = HTMLField(blank=True, null=True)
     slug = models.SlugField(blank=True, null=True)

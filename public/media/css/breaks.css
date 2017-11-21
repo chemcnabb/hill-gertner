@@ -12,6 +12,15 @@
     .mobile-page-title{
         display:none;
     }
+
+
+    .full-page-content{
+    margin-left: 16%;
+
+  -ms-flex: 0 0 83.333333%;
+  flex: 0 0 84%;
+  max-width: 84%;
+}
 }
 
 /*// Medium devices (tablets, 768px and up)*/
@@ -32,7 +41,7 @@
 /*// Extra small devices (portrait phones, less than 576px)*/
 @media (max-width: 575px) {
 .page-title h1{
-      width: 92vw;
+      width: 100%;
 }
     #page-header{
         position:relative !important;
@@ -40,6 +49,13 @@
     .full-page-title{
         display:none;
     }
+    .page-scroll{
+          width: 100%;
+  display: block;
+
+    }
+
+
 }
 
 /*// Small devices (landscape phones, less than 768px)*/
