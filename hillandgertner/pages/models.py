@@ -4,6 +4,7 @@ from django.dispatch import receiver
 from django.db import models
 from tinymce.models import HTMLField
 import subprocess
+from django.conf import settings
 # Create your models here.
 from django.template.defaultfilters import slugify
 # Create your models here.
@@ -37,4 +38,5 @@ class Page(models.Model):
 # method for updating
 @receiver(post_save, sender=Page, dispatch_uid="touch_tmp")
 def touch_tmp(sender, instance, **kwargs):
-     subprocess.call(["touch", "/tmp/restart.txt"])
+     # print settings.BASE_DIR + "/tmp/restart.txt"
+     subprocess.call(["touch", settings.BASE_DIR + "/tmp/restart.txt"])

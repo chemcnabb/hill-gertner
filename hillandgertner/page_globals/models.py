@@ -4,6 +4,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 import subprocess
 from django.db import models
+from django.conf import settings
 
 # Create your models here.
 class Globals(models.Model):
@@ -13,4 +14,5 @@ class Globals(models.Model):
 # method for updating
 @receiver(post_save, sender=Globals, dispatch_uid="touch_tmp")
 def touch_tmp(sender, instance, **kwargs):
-     subprocess.call(["touch", "/tmp/restart.txt"])
+    # print settings.BASE_DIR + "/tmp/restart.txt"
+    subprocess.call(["touch", settings.BASE_DIR + "/tmp/restart.txt"])
