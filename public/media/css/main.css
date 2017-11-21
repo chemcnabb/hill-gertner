@@ -267,6 +267,7 @@ strong{
 /* Placeholders */
 .placeholders {
     padding-bottom: 3rem;
+    width:102%;
 }
 
 .placeholder img {
@@ -275,7 +276,7 @@ strong{
 }
 
 .placeholder{
-    margin-top: 13px;
+    margin-top: 3px;
     margin-left: 3px;
 }
 
@@ -325,7 +326,12 @@ ul#mobile-nav-drawer {
       text-align: center;
   background-color: #d30000;
 }
+.page-scroll{
+    position: absolute;
+      width: 100%;
+  display: block;
 
+}
 .col-home-nav{
     flex: 0 0 16%;
     max-width: 16%;

@@ -120,7 +120,7 @@ mobileScrollItems.click(function(e){
             console.log(mobId);
             mobLastId = mobId;
             // Set/remove active class
-            mobMenuItems
+            mobileMenuItems
                 .parent().removeClass("active")
                 .end().filter("[href='#"+id+"']").parent().addClass("active");
             $('.landing').hide();

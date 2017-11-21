@@ -22,6 +22,10 @@
         .page-title.mobile-page-title {
             top: -{{ globals.header_height }}vh;
         }
+
+    .page-scroll{
+    top:-{{ globals.header_height }}vh;
+}
     </style>
 {% endblock %}
 
@@ -123,15 +127,17 @@
     </div>
     {% for page in pages %}
 
-        <div id="{{ page.slug }}" class="page {{ page.slug }} section"
+        <div class="page {{ page.slug }} section"
              style='background-image:url("{% if page.background_image %}{{ page.background_image.url }}{% endif %}");'>
-            <!--<a name="home"></a>-->
+
             <div class="container-fluid">
                 <div class="row">
 
 
                     <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
                                         <div class="page-title mobile-page-title"><h1>a talent-based merchant bank</h1></div>
+
+                        <a id="{{ page.slug }}" class="page-scroll"></a>
                         <div class="page-body">
                             <section class="row text-justify placeholders">
 
