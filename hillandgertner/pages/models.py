@@ -1,7 +1,9 @@
 from __future__ import unicode_literals
-
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.db import models
 from tinymce.models import HTMLField
+import subprocess
 # Create your models here.
 from django.template.defaultfilters import slugify
 # Create your models here.
@@ -31,3 +33,8 @@ class Page(models.Model):
         if not self.slug:
             self.slug = slugify(self.page_name)
         super(Page, self).save(*args, **kwargs)
+
+# method for updating
+@receiver(post_save, sender=Page, dispatch_uid="touch_tmp")
+def touch_tmp(sender, instance, **kwargs):
+     subprocess.call(["touch", "/tmp/restart.txt"])
