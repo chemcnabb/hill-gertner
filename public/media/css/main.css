@@ -206,11 +206,10 @@ top:-20px;
  * Dashboard
  */
 
-/* Placeholders */
-/*.placeholders {*/
-    /*padding-bottom: 3rem;*/
-    /*width:102%;*/
-/*}*/
+ /*Placeholders*/
+.placeholders {
+    padding: 30px 20px 0 20px;
+}
 
 /*.placeholder img {*/
     /*padding-top: 1.5rem;*/
