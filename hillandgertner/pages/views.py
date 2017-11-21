@@ -15,6 +15,6 @@ class IndexView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
         context['pages'] = self.pages
-        context['content_margin'] = (len(self.pages)+1)*int(self.globals.header_height)
+        context['content_margin'] = (len(self.pages)+1)*float(self.globals.header_height)
         context['globals'] = self.globals
         return context
