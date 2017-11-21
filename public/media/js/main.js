@@ -13,6 +13,13 @@ $(document).ready(function(){
             // Animation complete.
         });
     });
+
+    $( "#mobile-nav-toggle" ).click(function() {
+
+        $( "#mobile-nav-drawer" ).slideToggle( 350, function() {
+            // Animation complete.
+        });
+    });
 });
 
 
@@ -41,12 +48,20 @@ $(document).ready(function(){
 $(document).ready(function(){
     // Cache selectors
     var lastId,
+        mobLastId,
         topMenu = $("#nav-drawer"),
+        mobileMenu = $("#mobile-nav-drawer"),
         topMenuHeight = topMenu.outerHeight()+15,
+        mobileMenuHeight = mobileMenu.outerHeight()+15,
         // All list items
         menuItems = topMenu.find("a"),
+        mobileMenuItems = mobileMenu.find("a"),
         // Anchors corresponding to menu items
         scrollItems = menuItems.map(function(){
+            var item = $($(this).attr("href"));
+            if (item.length) { return item; }
+        }),
+        mobileScrollItems = mobileMenuItems.map(function(){
             var item = $($(this).attr("href"));
             if (item.length) { return item; }
         });
@@ -54,6 +69,14 @@ $(document).ready(function(){
 // Bind click handler to menu items
 // so we can get a fancy scroll animation
     menuItems.click(function(e){
+        var href = $(this).attr("href"),
+            offsetTop = href === "#" ? 0 : $(href).offset().top;
+        $('html, body').stop().animate({
+            scrollTop: offsetTop
+        }, 300);
+        e.preventDefault();
+    });
+mobileScrollItems.click(function(e){
         var href = $(this).attr("href"),
             offsetTop = href === "#" ? 0 : $(href).offset().top;
         $('html, body').stop().animate({
@@ -72,9 +95,15 @@ $(document).ready(function(){
             if ($(this).offset().top < fromTop)
                 return this;
         });
+        var mobCur = mobileScrollItems.map(function(){
+            if ($(this).offset().top < fromTop)
+                return this;
+        });
         // Get the id of the current element
         cur = cur[cur.length-1];
+        mobCur = mobCur[mobCur.length-1];
         var id = cur && cur.length ? cur[0].id : "";
+        var mobId = mobCur && mobCur.length ? mobCur[0].id : "";
 
         if (lastId !== id) {
             console.log(id);
@@ -83,7 +112,19 @@ $(document).ready(function(){
             menuItems
                 .parent().removeClass("active")
                 .end().filter("[href='#"+id+"']").parent().addClass("active");
+            $('.landing').hide();
             window.location.hash = id;
+        }
+
+        if (mobLastId !== mobId) {
+            console.log(mobId);
+            mobLastId = mobId;
+            // Set/remove active class
+            mobMenuItems
+                .parent().removeClass("active")
+                .end().filter("[href='#"+id+"']").parent().addClass("active");
+            $('.landing').hide();
+            window.location.hash = mobId;
         }
     });
 });

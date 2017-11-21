@@ -1,111 +1,155 @@
-
 {% extends "base.html" %}
 
 {% block extra_CSS %}
     <style>
-.header-back{
-        height:{{ globals.header_height }}vh;
-    margin-bottom:-{{ globals.header_height }}vh;
-}
-.header-logo{
-    height:{{ globals.header_height }}vh;
-}
-.page{
-    margin-top: {{ globals.header_height }}vh;
-}
-#page-header{
-    height: {{ globals.header_height }}vh;
-}
-</style>
+        .header-back {
+            height: {{ globals.header_height }}vh;
+            margin-bottom: -{{ globals.header_height }}vh;
+        }
+
+        .header-logo {
+            height: {{ globals.header_height }}vh;
+        }
+
+        .page {
+            margin-top: {{ globals.header_height }}vh;
+        }
+
+        #page-header {
+            height: {{ globals.header_height }}vh;
+        }
+
+        .page-title.mobile-page-title {
+            top: -{{ globals.header_height }}vh;
+        }
+    </style>
 {% endblock %}
 
 
 {% block content %}
 
-<div class="landing">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="landing-body">
-                <div class="landing-logo"><img class="logo" src="/media/img/Hill&Gertner-logo.svg" /></div>
-                <div class="landing-arrow"><img class="landing-down-arrow" src="/media/img/arrow-down.svg" /></div>
-                <div class="landing-header">
-                    <div class="landing-title"><h3>a talent-based merchant bank</h3></div>
+    <div class="landing">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="landing-body">
+                    <div class="landing-logo"><img class="logo" src="/media/img/Hill&Gertner-logo.svg"/></div>
+                    <div class="landing-arrow"><img class="landing-down-arrow" src="/media/img/arrow-down.svg"/></div>
+                    <div class="landing-header">
+                        <div class="landing-title"><h3>a talent-based merchant bank</h3></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div id="trigger1"></div>
+    <div id="trigger1"></div>
 
-<nav class="col-home-nav d-none d-sm-block sidebar padding-top-0">
+    <nav class="col-home-nav d-none d-sm-block sidebar padding-top-0">
 
-    <ul class="nav flex-column header-logo">
-        <li class="nav-item">
-            <a class="nav-link" href="#"><img class="logo" src="/media/img/Hill&Gertner-logo.svg" /></a>
-        </li>
+        <ul class="nav flex-column header-logo">
+            <li class="nav-item">
+                <a class="nav-link" href="#"><img class="logo" src="/media/img/Hill&Gertner-logo.svg"/></a>
+            </li>
 
-    </ul>
-    <ul class="nav nav-pills flex-column">
+        </ul>
+        <ul class="nav nav-pills flex-column">
 
-        <li class="nav-item">
-            <button id="nav-toggle" class="hamburger hamburger--collapse is-active" type="button">
+            <li class="nav-item">
+                <button id="nav-toggle" class="hamburger hamburger--collapse is-active" type="button">
                           <span class="hamburger-box">
                             <span class="hamburger-inner"></span>
                           </span>
-            </button>
-            <div id="navigation">
-                <!--navigation goes here-->
-                <ul id="nav-drawer">
-                    {% for page in pages %}
-                    <li><a href="#{{ page.slug }}">{{ page.page_name }}</a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </li>
-
-    </ul>
-
-    <ul class="nav nav-pills flex-column down-arrow-container">
-        <li class="nav-item">
-            <img class="down-arrow" src="/media/img/arrow-down.svg" />
-        </li>
-
-    </ul>
-
-
-</nav>
-
-<div id="page-header" class="pt-3">
-                <div class="page-title"><h1>a talent-based merchant bank</h1></div>
-</div>
-{% for page in pages %}
-
-<div id="{{ page.slug }}" class="page {{ page.slug }} section" style='background-image:url("{% if page.background_image %}{{ page.background_image.url }}{% endif %}");'>
-    <!--<a name="home"></a>-->
-    <div class="container-fluid">
-        <div class="row">
-
-
-            <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
-{#                <div class="page-title"><h1>a talent-based merchant bank</h1></div>#}
-                <div class="page-body">
-                <section class="row text-justify placeholders">
-
-                    <div class="col-{% if page.num_columns %}{{ page.num_columns }}{% else %}11{% endif %} placeholder">
-                        {% autoescape off %}{{ page.copy }}{% endautoescape %}
-                    </div>
-
-                </section>
-
-
-
+                </button>
+                <div id="navigation">
+                    <!--navigation goes here-->
+                    <ul id="nav-drawer">
+                        {% for page in pages %}
+                            <li><a href="#{{ page.slug }}">{{ page.page_name }}</a></li>
+                        {% endfor %}
+                    </ul>
                 </div>
-            </main>
+            </li>
+
+        </ul>
+
+        <ul class="nav nav-pills flex-column down-arrow-container">
+            <li class="nav-item">
+                <img class="down-arrow" src="/media/img/arrow-down.svg"/>
+            </li>
+
+        </ul>
+
+
+    </nav>
+
+    <nav class="col-mobile-home-nav topbar padding-top-0">
+
+        <ul class="nav flex-column mobile-header-logo">
+            <li class="nav-item">
+                <a class="nav-link" href="#"><img class="logo" src="/media/img/Hill&Gertner-logo.svg"/></a>
+            </li>
+
+        </ul>
+        <ul class="nav nav-pills flex-column">
+
+            <li class="nav-item">
+                <button id="mobile-nav-toggle" class="hamburger hamburger--collapse is-active" type="button">
+                          <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                          </span>
+                </button>
+                <div id="navigation">
+                    <!--navigation goes here-->
+                    <ul id="mobile-nav-drawer">
+                        {% for page in pages %}
+                            <li><a href="#{{ page.slug }}">{{ page.page_name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </li>
+
+        </ul>
+
+
+
+
+    </nav>
+
+    <div class="container-fluid full-page-title">
+        <div class="row">
+            <div id="page-header" class="pt-3">
+                <div class="page-title"><h1>a talent-based merchant bank</h1></div>
+            </div>
         </div>
     </div>
-</div>
+    {% for page in pages %}
 
-{% endfor %}
+        <div id="{{ page.slug }}" class="page {{ page.slug }} section"
+             style='background-image:url("{% if page.background_image %}{{ page.background_image.url }}{% endif %}");'>
+            <!--<a name="home"></a>-->
+            <div class="container-fluid">
+                <div class="row">
+
+
+                    <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
+                                        <div class="page-title mobile-page-title"><h1>a talent-based merchant bank</h1></div>
+                        <div class="page-body">
+                            <section class="row text-justify placeholders">
+
+                                <div class="col-
+                                        {% if page.num_columns %}{{ page.num_columns }}{% else %}11{% endif %} placeholder">
+                                    {% autoescape off %}{{ page.copy }}{% endautoescape %}
+                                </div>
+
+                            </section>
+
+
+                        </div>
+                    </main>
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
 
 
 {% endblock %}

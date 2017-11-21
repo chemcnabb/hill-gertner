@@ -53,11 +53,17 @@ position: fixed;
   /* left: 16.7%; */
   /* padding-left: 78px !important; */
   right: 0;
-  width: 85vw;
+  width: 100vw;
   /* left: 16%; */
   background-color: #fff;
   z-index: 995;
 
+}
+.page-title h1{
+
+  /* align-items: right; */
+  /* text-align: right; */
+  float: right;
 }
 .landing{
     /*height:100vh;*/
@@ -310,6 +316,14 @@ strong{
     color:#fff;
     text-transform:uppercase;
     font-size:10px;
+}
+ul#mobile-nav-drawer {
+  padding-bottom: 28px !important;
+}
+
+.mobile-header-logo li{
+      text-align: center;
+  background-color: #d30000;
 }
 
 .col-home-nav{
