@@ -15,7 +15,7 @@
             @media (min-width: 576px) {
                 .page-content{
 
-             margin-top: {{ content_margin }}px;
+             margin-top: {{ globals.header_height }}vh;
     }
             }
     @media (max-width: 575px){
@@ -24,28 +24,7 @@
 
     }
     }
-{#        .header-back {#}
-{#            height: {{ globals.header_height }}vh;#}
-{#            margin-bottom: -{{ globals.header_height }}vh;#}
-{#        }#}
-{##}
 
-{##}
-{#        .page {#}
-{#            margin-top: {{ globals.header_height }}vh;#}
-{#        }#}
-{##}
-{#        #page-header {#}
-{#            height: {{ globals.header_height }}vh;#}
-{#        }#}
-{##}
-{#        .page-title.mobile-page-title {#}
-{#            top: -{{ globals.header_height }}vh;#}
-{#        }#}
-{##}
-{#    .page-scroll{#}
-{#    top:-{{ globals.header_height }}vh;#}
-{#}#}
     </style>
 {% endblock %}
 
@@ -161,7 +140,7 @@
 
 
 
-                        <div class="page-body col-{% if page.num_columns %}{{ page.num_columns }}{% else %}12{% endif %}" >
+                        <div class="page-body col-md-{% if page.num_columns %}{{ page.num_columns }}{% else %}12{% endif %} col-lg-{% if page.num_columns %}{{ page.num_columns }}{% else %}12{% endif %} col-sm-12" >
                             <section class="{% if page.text_format %}{{ page.text_format }}{% endif %} placeholders">
 
 
