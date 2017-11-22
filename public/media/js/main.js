@@ -59,6 +59,7 @@ $(document).ready(function(){
         // Anchors corresponding to menu items
         scrollItems = menuItems.map(function(){
             var item = $($(this).attr("href"));
+
             if (item.length) { return item; }
         }),
         mobileScrollItems = mobileMenuItems.map(function(){
@@ -75,6 +76,7 @@ $(document).ready(function(){
             scrollTop: offsetTop
         }, 300);
         e.preventDefault();
+        window.location.hash = href;
     });
 mobileScrollItems.click(function(e){
         var href = $(this).attr("href"),
@@ -83,6 +85,7 @@ mobileScrollItems.click(function(e){
             scrollTop: offsetTop
         }, 300);
         e.preventDefault();
+        window.location.hash = href;
     });
 
 // Bind to scroll
@@ -113,7 +116,7 @@ mobileScrollItems.click(function(e){
                 .parent().removeClass("active")
                 .end().filter("[href='#"+id+"']").parent().addClass("active");
             $('.landing').hide();
-            window.location.hash = id;
+
         }
 
         if (mobLastId !== mobId) {
@@ -124,7 +127,7 @@ mobileScrollItems.click(function(e){
                 .parent().removeClass("active")
                 .end().filter("[href='#"+id+"']").parent().addClass("active");
             $('.landing').hide();
-            window.location.hash = mobId;
+
         }
     });
 });
