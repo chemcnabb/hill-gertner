@@ -32,6 +32,10 @@
         font-size: {{ globals.body_text_size }}px;
         color: {{ globals.body_text_color }};
     }
+    .page-body p{
+        font-size: {{ globals.body_text_size }}px;
+        color: {{ globals.body_text_color }};
+    }
 
     </style>
 {% endblock %}
@@ -132,7 +136,16 @@
         </div>
     </div>
     {% for page in pages %}
-
+<style>
+.{{ page.slug }} .page-body p{
+        font-size: {{ page.body_text_size }}px;
+        color: {{ page.body_text_color }};
+    }
+.{{ page.slug }} .page-body h2{
+        font-size: {{ page.heading_text_size }}px;
+        color: {{ page.heading_text_color }};
+    }
+</style>
         <div class="page {{ page.slug }} section">
 
             <div class="container-fluid">

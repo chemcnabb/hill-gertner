@@ -10,6 +10,12 @@ from django.template.defaultfilters import slugify
 # Create your models here.
 class Page(models.Model):
     date = models.DateTimeField(blank=True, null=True)
+
+    heading_text_size = models.IntegerField(blank=False, null=True, default=10)
+    heading_text_color = models.CharField(max_length=500, blank=False, null=True, default="#000")
+    body_text_size = models.IntegerField(blank=False, null=True, default=12)
+    body_text_color = models.CharField(max_length=500, blank=False, null=True, default="#000")
+
     background_image = models.ImageField(blank=True, null=True)
     # header = models.CharField(max_length=500,blank=True, null=True)
     # subheader = models.CharField(max_length=500,blank=True, null=True)
