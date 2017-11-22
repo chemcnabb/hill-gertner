@@ -1,22 +1,18 @@
-
-
-
-
-$(document).ready(function(){
-    $('.hamburger').click(function(){
+$(document).ready(function () {
+    $('.hamburger').click(function () {
         $(this).toggleClass('is-active');
     });
     //$( "#nav-drawer" ).hide();
-    $( "#nav-toggle" ).click(function() {
+    $("#nav-toggle").click(function () {
 
-        $( "#nav-drawer" ).slideToggle( 350, function() {
+        $("#nav-drawer").slideToggle(350, function () {
             // Animation complete.
         });
     });
 
-    $( "#mobile-nav-toggle" ).click(function() {
+    $("#mobile-nav-toggle").click(function () {
 
-        $( "#mobile-nav-drawer" ).slideToggle( 350, function() {
+        $("#mobile-nav-drawer").slideToggle(350, function () {
             // Animation complete.
         });
     });
@@ -25,7 +21,7 @@ $(document).ready(function(){
 
 // $(document).ready(function() {
 
-    // init controller
+// init controller
 // var controller = new ScrollMagic.Controller();
 //
 // // create a scene
@@ -39,37 +35,35 @@ $(document).ready(function(){
 //
 
 
-
-
-
-
-
-
-$(document).ready(function(){
+$(document).ready(function () {
     // Cache selectors
     var lastId,
         mobLastId,
         topMenu = $("#nav-drawer"),
         mobileMenu = $("#mobile-nav-drawer"),
-        topMenuHeight = topMenu.outerHeight()+15,
-        mobileMenuHeight = mobileMenu.outerHeight()+15,
+        topMenuHeight = topMenu.outerHeight() + 15,
+        mobileMenuHeight = mobileMenu.outerHeight() + 15,
         // All list items
         menuItems = topMenu.find("a"),
         mobileMenuItems = mobileMenu.find("a"),
         // Anchors corresponding to menu items
-        scrollItems = menuItems.map(function(){
+        scrollItems = menuItems.map(function () {
             var item = $($(this).attr("href"));
 
-            if (item.length) { return item; }
+            if (item.length) {
+                return item;
+            }
         }),
-        mobileScrollItems = mobileMenuItems.map(function(){
+        mobileScrollItems = mobileMenuItems.map(function () {
             var item = $($(this).attr("href"));
-            if (item.length) { return item; }
+            if (item.length) {
+                return item;
+            }
         });
 
 // Bind click handler to menu items
 // so we can get a fancy scroll animation
-    menuItems.click(function(e){
+    menuItems.click(function (e) {
         var href = $(this).attr("href"),
             offsetTop = href === "#" ? 0 : $(href).offset().top;
         $('html, body').stop().animate({
@@ -78,7 +72,7 @@ $(document).ready(function(){
         e.preventDefault();
         window.location.hash = href;
     });
-mobileScrollItems.click(function(e){
+    mobileScrollItems.click(function (e) {
         var href = $(this).attr("href"),
             offsetTop = href === "#" ? 0 : $(href).offset().top;
         $('html, body').stop().animate({
@@ -89,44 +83,46 @@ mobileScrollItems.click(function(e){
     });
 
 // Bind to scroll
-    $(window).scroll(function(){
+    $(window).scroll(function () {
         // Get container scroll position
-        var fromTop = $(this).scrollTop()+5;
+        var fromTop = $(this).scrollTop() + 5;
 
+        if(($(this).scrollTop() + 5) > $("#landing").height()){
+            $("#landing").hide();
+        }
         // Get id of current scroll item
-        var cur = scrollItems.map(function(){
+        var cur = scrollItems.map(function () {
             if ($(this).offset().top < fromTop)
                 return this;
         });
-        var mobCur = mobileScrollItems.map(function(){
+        var mobCur = mobileScrollItems.map(function () {
             if ($(this).offset().top < fromTop)
                 return this;
         });
         // Get the id of the current element
-        cur = cur[cur.length-1];
-        mobCur = mobCur[mobCur.length-1];
+        cur = cur[cur.length - 1];
+        mobCur = mobCur[mobCur.length - 1];
         var id = cur && cur.length ? cur[0].id : "";
         var mobId = mobCur && mobCur.length ? mobCur[0].id : "";
 
         if (lastId !== id) {
-            console.log(id);
+
             lastId = id;
             // Set/remove active class
             menuItems
                 .parent().removeClass("active")
-                .end().filter("[href='#"+id+"']").parent().addClass("active");
-            $('.landing').hide();
+                .end().filter("[href='#" + id + "']").parent().addClass("active");
 
         }
 
         if (mobLastId !== mobId) {
-            console.log(mobId);
+
             mobLastId = mobId;
             // Set/remove active class
             mobileMenuItems
                 .parent().removeClass("active")
-                .end().filter("[href='#"+id+"']").parent().addClass("active");
-            $('.landing').hide();
+                .end().filter("[href='#" + id + "']").parent().addClass("active");
+
 
         }
     });
