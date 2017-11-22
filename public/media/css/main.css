@@ -108,6 +108,19 @@ strong{
     font-weight:500 !important;
 }
 
+a:link{
+    color:#d30000;
+}
+a:visited{
+    color:#d30000;
+}
+a:hover{
+    color:#fff;
+}
+a:active{
+    color:#d30000;
+}
+
 /*
  * Sidebar
  */
