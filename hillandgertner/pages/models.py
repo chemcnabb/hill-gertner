@@ -13,6 +13,8 @@ class Page(models.Model):
 
     heading_text_size = models.IntegerField(blank=False, null=True, default=10)
     heading_text_color = models.CharField(max_length=500, blank=False, null=True, default="#000")
+    subheading_text_size = models.IntegerField(blank=False, null=True, default=10)
+    subheading_text_color = models.CharField(max_length=500, blank=False, null=True, default="#000")
     body_text_size = models.IntegerField(blank=False, null=True, default=12)
     body_text_color = models.CharField(max_length=500, blank=False, null=True, default="#000")
 
