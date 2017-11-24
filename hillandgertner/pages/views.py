@@ -9,7 +9,7 @@ from hillandgertner.page_globals.models import Globals
 # Create your views here.
 class IndexView(TemplateView):
     template_name = 'main.html'
-    pages = Page.objects.order_by('-order')
+    pages = Page.objects.order_by('order')
     globals = Globals.objects.first()
 
     def get_context_data(self, **kwargs):
