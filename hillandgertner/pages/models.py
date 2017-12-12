@@ -9,7 +9,7 @@ from django.conf import settings
 from django.template.defaultfilters import slugify
 # Create your models here.
 class Page(models.Model):
-    date = models.DateTimeField(blank=True, null=True)
+    date = models.DateTimeField(blank=True, null=True, auto_now_add=True)
 
     heading_text_size = models.IntegerField(blank=False, null=True, default=10)
     heading_text_color = models.CharField(max_length=500, blank=False, null=True, default="#000")
@@ -42,6 +42,17 @@ class Page(models.Model):
         if not self.slug:
             self.slug = slugify(self.page_name)
         super(Page, self).save(*args, **kwargs)
+
+
+
+
+
+
+
+
+
+
+
 
 # method for updating
 @receiver(post_save, sender=Page, dispatch_uid="touch_tmp")

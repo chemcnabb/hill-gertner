@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'hillandgertner.page_globals',
     'hillandgertner.pages',
+    'hillandgertner.protected_pages',
     'tinymce',
 ]
 

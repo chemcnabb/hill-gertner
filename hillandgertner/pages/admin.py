@@ -8,3 +8,14 @@ class PageAdmin(admin.ModelAdmin):
     list_display = ('page_name', 'order')
     list_editable = ['order',]
 admin.site.register(Page, PageAdmin)
+
+
+
+
+
+
+
+
+
+
+
