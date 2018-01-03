@@ -22,7 +22,7 @@ class IndexView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
         context['pages'] = self.pages
-        context['protected_pages'] = self.protected_pages
+
         if self.globals:
             context['content_margin'] = ((len(self.pages)+1)*float(self.globals.header_height))-(len(self.pages)/2)-1
             context['header_height_adjusted'] = float(self.globals.header_height)-1

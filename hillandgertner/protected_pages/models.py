@@ -3,6 +3,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.db import models
 from tinymce.models import HTMLField
+from hillandgertner.pages.models import Page
 import subprocess
 from django.conf import settings
 # Create your models here.
@@ -34,6 +35,7 @@ class Image(models.Model):
 class ProtectedPage(models.Model):
     type = models.CharField(max_length=7, choices=PAGE_TYPES)
     date = models.DateTimeField(blank=True, null=True, auto_now_add=True)
+    parent_page = models.ForeignKey(Page, null=True, blank=True)
     background_image = models.ImageField(blank=True, null=True)
     page_name = models.CharField(max_length=500, blank=False, null=True)
     slug = models.SlugField(blank=True, null=True)

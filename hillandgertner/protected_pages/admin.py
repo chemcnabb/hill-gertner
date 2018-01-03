@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
-from .models import ProtectedPage, ImageGallery, PDFpage, Image
+from .models import ImageGallery, PDFpage, Image
 # Register your models here.
 
 
@@ -16,11 +16,11 @@ class ImageInline(admin.TabularInline):
     model = Image
 
 class GalleryPageAdmin(admin.ModelAdmin):
-    list_display = ('page_name', 'order')
-    list_editable = ['order',]
+    list_display = ('page_name', 'parent_page', 'order')
+    list_editable = ['parent_page', 'order', ]
     fieldsets = (
         ('Page info', {
-            'fields': ('page_name', "slug")
+            'fields': ('parent_page', 'page_name', "slug")
         }),
 
     )
@@ -28,11 +28,11 @@ class GalleryPageAdmin(admin.ModelAdmin):
 admin.site.register(ImageGallery, GalleryPageAdmin)
 
 class PDFPageAdmin(admin.ModelAdmin):
-    list_display = ('page_name', 'order')
-    list_editable = ['order',]
+    list_display = ('page_name', 'parent_page', 'order')
+    list_editable = ['parent_page', 'order',]
     fieldsets = (
         ('Page info', {
-            'fields': ('page_name', "slug")
+            'fields': ('parent_page', 'page_name', "slug")
         }),
         ('Presentation', {
             'fields': ('pdf',)
