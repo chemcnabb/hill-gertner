@@ -180,7 +180,7 @@ object{
 
 
                         </div>
-
+                                {% if user.is_authenticated %}
                                 {% for protected_page in page.protectedpage_set.all %}
                                 {% if protected_page.page_name %}
                                     <div class="page-body col-md-12 col-lg-12 col-sm-12" >
@@ -219,6 +219,7 @@ object{
                                     </div>
                                     {% endif %}
                                 {% endfor %}
+                                {% endif %}
 
                     </main>
                 </div>
