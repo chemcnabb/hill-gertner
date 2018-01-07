@@ -24,6 +24,10 @@
     padding: 40px;
 }
 
+.gallery-image {
+      background-size: cover;
+}
+
 /* Override bootstrap column paddings */
 .tz-gallery .row > div {
     padding: 2px;
@@ -33,6 +37,7 @@
     width: 100%;
     border-radius: 0;
     position: relative;
+    visibility: hidden;
 }
 
 .tz-gallery .lightbox:before {
