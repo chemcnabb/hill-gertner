@@ -42,6 +42,8 @@
 @media (max-width: 575px) {
 .page-title h1{
       width: 100%;
+    text-align:center;
+    padding-right:0 !important;
 }
     #page-header{
         position:relative !important;
