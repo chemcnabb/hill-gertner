@@ -30,7 +30,7 @@
 
 /* Override bootstrap column paddings */
 .tz-gallery .row > div {
-    padding: 2px;
+    border: 2px solid white;
 }
 
 .tz-gallery .lightbox img {
