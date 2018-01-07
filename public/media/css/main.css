@@ -352,3 +352,15 @@ li.active a {
     /*color:#ed1718 !important;*/
     text-decoration: underline;
 }
+
+.btn-primary{
+color:#fff;
+    background-color:#d30000;
+    border-color:#d30000;
+}
+
+.btn-primary:hover {
+  color: #000;
+  background-color: #fff;
+  border-color: #fff;
+}

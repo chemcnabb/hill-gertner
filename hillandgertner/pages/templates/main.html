@@ -46,6 +46,8 @@
 
 {% block content %}
 
+
+
     <div id="landing" class="landing">
         <div class="container-fluid">
             <div class="row">
@@ -204,7 +206,18 @@ object{
                                     <hr />
                                     {% endif %}
                                 {% endfor %}
-                                {% endif %}
+                                {% else %}
+                                    <div class="row">
+                                    <div class="page-body col-md-12 col-lg-12 col-sm-12" >
+                                    <section class=" placeholders">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
+  LOGIN
+</button>
+                                    </section>
+                                    </div>
+                                    </div>
+                    {% endif %}
+
 
                     </main>
                 </div>
