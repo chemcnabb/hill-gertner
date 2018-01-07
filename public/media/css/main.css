@@ -60,6 +60,9 @@ button, button:focus {
   float: right;
 }
 
+.gallery-container p{
+    color:#000 !important;
+}
 
 .page{
     background-size:cover;

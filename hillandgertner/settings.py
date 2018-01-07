@@ -167,6 +167,7 @@ TINYMCE_DEFAULT_CONFIG = {
     'table_row_limit': 5,
     'table_col_limit': 5,
     'table_inline_editing': True,
+
 }
 
 TINYMCE_JS_URL = '/static/tiny_mce/tiny_mce_src.js'
