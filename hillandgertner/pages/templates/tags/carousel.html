@@ -36,7 +36,7 @@
 
         <div class="row">
 {% for image_item in protected_page.image_set.all %}
-            <div class="{% if forloop.first %}col-sm-12 col-md-4{% elif forloop.counter0|divisibleby:2 %}col-sm-12 col-md-6{% else %}col-sm-6 col-md-4{% endif %} gallery-image" style="background-image:url('{{ image_item.image.url }}');">
+            <div class="{% if forloop.first %}col-sm-12 col-md-4{% elif forloop.counter0|divisibleby:3 or forloop.counter0|divisibleby:4 %}col-sm-12 col-md-6{% else %}col-sm-6 col-md-4{% endif %} gallery-image" style="background-image:url('{{ image_item.image.url }}');">
                 <a class="lightbox" href="{{ image_item.image.url }}">
                     <img src="{{ image_item.image.url }}" alt="{{ image_item.image }}">
                 </a>
