@@ -63,7 +63,7 @@ ROOT_URLCONF = 'hillandgertner.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'hillandgertner/templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), os.path.join(BASE_DIR, 'hillandgertner/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -171,3 +171,5 @@ TINYMCE_DEFAULT_CONFIG = {
 }
 
 TINYMCE_JS_URL = '/static/tiny_mce/tiny_mce_src.js'
+
+

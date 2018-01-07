@@ -1,0 +1,201 @@
+{% extends '../base.html' %}
+{% block extra_CSS %}
+    <style>
+
+    .page-title{
+    height:15vh;
+    }
+            .header-logo {
+            height: 15vh;
+        }
+            .page-content{
+            top: 15vh;
+
+    }
+            @media (min-width: 576px) {
+                .page-content{
+
+             margin-top: 15vh;
+    }
+            }
+    @media (max-width: 575px){
+    .page-scroll{
+          margin-top:-14.0vh;
+
+    }
+    }
+    h1{
+        font-size: 10px;
+        color: #000;
+    }
+    p{
+        font-size: 12px;
+        color: #000;
+    }
+    .page-body p{
+        font-size: 12px;
+        color: #000;
+    }
+
+    </style>
+{% endblock %}
+
+{% block content %}
+
+
+    <nav class="col-home-nav d-none d-sm-block sidebar padding-top-0">
+
+        <div class="header-logo">
+
+            <a href="#"><img class="logo" src="/media/img/Hill&Gertner-logo.svg"/></a>
+
+        </div>
+        <ul class="nav nav-pills flex-column">
+
+            <li class="nav-item">
+                <button id="nav-toggle" class="hamburger hamburger--collapse is-active" type="button">
+                          <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                          </span>
+                </button>
+                <div id="navigation" class="page-navigation">
+                    <!--navigation goes here-->
+                    <ul id="nav-drawer">
+                        {% for page in pages %}
+                            <li><a href="#{{ page.slug }}">{{ page.page_name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </li>
+
+        </ul>
+
+        <ul class="nav nav-pills flex-column down-arrow-container">
+            <li class="nav-item">
+                <img class="down-arrow" src="/media/img/arrow-down.svg"/>
+            </li>
+
+        </ul>
+
+
+    </nav>
+
+    <nav class="col-mobile-home-nav topbar padding-top-0">
+
+        <ul class="nav flex-column mobile-header-logo">
+            <li class="nav-item">
+                <a class="nav-link" href="#"><img class="logo" src="/media/img/Hill&Gertner-logo.svg"/></a>
+            </li>
+
+        </ul>
+        <ul class="nav nav-pills flex-column">
+
+            <li class="nav-item">
+                <button id="mobile-nav-toggle" class="hamburger hamburger--collapse" type="button">
+                          <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                          </span>
+                </button>
+                <div id="mobile-navigation">
+                    <!--navigation goes here-->
+                    <ul id="mobile-nav-drawer">
+                        {% for page in pages %}
+                            <li><a href="#{{ page.slug }}">{{ page.page_name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </li>
+
+        </ul>
+
+
+    </nav>
+
+    <div class="container-fluid full-page-title">
+        <div class="row">
+            <div id="page-header" class="col-12">
+                <div class="page-title"><h1>a talent-based merchant bank</h1></div>
+            </div>
+        </div>
+    </div>
+    <div class="page login section">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12  page-title mobile-page-title"><h1>a talent-based merchant bank</h1></div>
+            </div>
+            <div class="row">
+
+                <a id="login" class="page-scroll"></a>
+                <main role="main" class="page-content full-page-content "
+                      style='min-height:50%;max-height:99%;'>
+
+
+                    <div class="container">
+
+                        <div class="">
+                            <div class="col-md-4 col-md-offset-4">
+                                <div class="login-panel panel panel-default">
+                                    <div class="panel-heading">
+                                        {% if form.errors %}
+
+                        <p class="alert alert-danger">Your username and password didn't match. Please try again.</p>
+                    {% endif %}
+
+                    {% if next %}
+                        {% if user.is_authenticated %}
+
+                            <p>Your account doesn't have access to this page. To proceed,
+                                please login with an account that has access.</p>
+                        {% else %}
+
+                            <p>Please login to see this page.</p>
+                        {% endif %}
+                    {% endif %}
+                                        <h3 class="panel-title">Please Sign In</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <form method="post" action="{% url 'login' %}">
+          <formgroup>
+
+      <div class="modal-body">
+
+    {% csrf_token %}
+    <p><label for="id_username" class="col-form-label">Username:</label> <input class="form-control"  id="id_username" type="text" name="username" maxlength="30" /></p>
+    <p><label for="id_password" class="col-form-label">Password:</label> <input class="form-control" type="password" name="password" id="id_password" /></p>
+
+
+    <input type="hidden" name="next" value="/front" />
+
+
+
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <input type="submit" class="btn btn-primary" value="Login" />
+      </div>
+              </formgroup>
+        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </main>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+
+
+    <script>
+        {% if not user.is_authenticated %}
+            $("ul.nav.navbar-nav.navbar-right").css("display", "none");
+        {% endif %}
+    </script>
+
+{% endblock %}

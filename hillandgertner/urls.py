@@ -22,11 +22,9 @@ from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
-url(r'^login/$', auth_views.login, name='login'),
-
+    url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^admin/', admin.site.urls),
-
     url(r'^$', TemplateView.as_view(template_name='index.html')),
     url(r'^front/', include('hillandgertner.pages.urls')),
 ]
