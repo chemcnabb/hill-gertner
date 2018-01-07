@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+{% load secure_widgets utilities %}
+
+
 
 {% block extra_CSS %}
     <style>
@@ -181,9 +184,10 @@ object{
 
                         </div>
                                 {% if user.is_authenticated %}
-                                {% for protected_page in page.protectedpage_set.all %}
-                                {% if protected_page.page_name %}
-                                    <div class="page-body col-md-12 col-lg-12 col-sm-12" >
+                                {% for protected_page in page.protectedpage_set.all|cleanup_pages %}
+                                {% if protected_page.heading %}
+                                    <div class="row">
+                                    <div class="page-body col-md-12 col-lg-12 col-sm-12 {{ protected_page.type }}" >
                                     <section class=" placeholders">
 
                                     {% if protected_page.type == "pdf" %}
@@ -191,32 +195,13 @@ object{
                                             alt : <a href="{% if protected_page.pdf %}{{ protected_page.pdf.url }}{% endif %}">{{ protected_page.page_name }}</a>
                                         </object>
                                     {% elif protected_page.type == "gallery" %}
-                                        <div id="carouselExampleIndicators" style="height:75vh" class="carousel slide" data-ride="carousel">
-                                          <ol class="carousel-indicators">
-                                              {% for image_item in protected_page.image_set.all %}
-                                            <li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}"></li>
-                                            {% endfor %}
-                                          </ol>
-                                          <div class="carousel-inner">
-                                              {% for image_item in protected_page.image_set.all %}
-                                            <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                                              <img class="d-block w-100" src="{{ image_item.image.url }}" alt="{{ image_item.image }}">
-                                            </div>
-                                              {% endfor %}
-                                          </div>
-                                          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                            <span class="sr-only">Previous</span>
-                                          </a>
-                                          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                            <span class="sr-only">Next</span>
-                                          </a>
-                                        </div>
+                                        {% image_gallery protected_page %}
                                     {% endif %}
 
                                     </section>
                                     </div>
+                                    </div>
+                                    <hr />
                                     {% endif %}
                                 {% endfor %}
                                 {% endif %}

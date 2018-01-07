@@ -37,20 +37,22 @@ class ProtectedPage(models.Model):
     date = models.DateTimeField(blank=True, null=True, auto_now_add=True)
     parent_page = models.ForeignKey(Page, null=True, blank=True)
     background_image = models.ImageField(blank=True, null=True)
-    page_name = models.CharField(max_length=500, blank=False, null=True)
+    heading = models.CharField(max_length=500, blank=False, null=True)
+    subheading = models.CharField(max_length=500, blank=True, null=True)
+    paragraph = HTMLField(blank=True, null=True)
     slug = models.SlugField(blank=True, null=True)
     order = models.IntegerField(default=0)
     pdf = models.FileField(blank=True, null=True)
 
     def __unicode__(self):
-        return self.page_name or self.date
+        return self.heading or self.date
 
     def get_url(self):
         return "#%s" % self.slug
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.page_name)
+            self.slug = slugify(self.heading)
         super(ProtectedPage, self).save(*args, **kwargs)
 
 class PDFpage(ProtectedPage):

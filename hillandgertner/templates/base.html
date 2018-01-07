@@ -19,6 +19,8 @@
     <link href="/media/css/landing.css" rel="stylesheet">
     <link href="/media/css/main.css" rel="stylesheet">
     <link href="/media/css/breaks.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
+    <link href="/media/css/fluid-gallery.css" rel="stylesheet">
     {% block extra_CSS %}{% endblock %}
 </head>
 
@@ -35,6 +37,10 @@
 <script src="/media/js/vendor/scrollmagic/uncompressed/ScrollMagic.js"></script>
 <script src="/media/js/vendor/scrollmagic/uncompressed/plugins/debug.addIndicators.js"></script>
 <script src="/media/js/vendor/scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
 <script src="/media/js/main.js"></script>
+<script>
+    baguetteBox.run('.tz-gallery');
+</script>
 </body>
 </html>

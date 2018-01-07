@@ -1,0 +1,51 @@
+{#<div id="{{ protected_page.slug }}" style="height:75vh" class="carousel slide secured-widget" data-ride="carousel">#}
+{#  <ol class="carousel-indicators">#}
+{#      {% for image_item in protected_page.image_set.all %}#}
+{#    <li data-target="#{{ protected_page.slug }}" data-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}"></li>#}
+{#    {% endfor %}#}
+{#  </ol>#}
+{#  <div class="carousel-inner">#}
+{#      {% for image_item in protected_page.image_set.all %}#}
+{#    <div class="carousel-item {% if forloop.first %}active{% endif %}">#}
+{#      <img class="d-block w-100" src="{{ image_item.image.url }}" alt="{{ image_item.image }}">#}
+{#    </div>#}
+{#      {% endfor %}#}
+{#  </div>#}
+{#  <a class="carousel-control-prev" href="#{{ protected_page.slug }}" role="button" data-slide="prev">#}
+{#    <span class="carousel-control-prev-icon" aria-hidden="true"></span>#}
+{#    <span class="sr-only">Previous</span>#}
+{#  </a>#}
+{#  <a class="carousel-control-next" href="#{{ protected_page.slug }}" role="button" data-slide="next">#}
+{#    <span class="carousel-control-next-icon" aria-hidden="true"></span>#}
+{#    <span class="sr-only">Next</span>#}
+{#  </a>#}
+{#</div>#}
+
+
+
+
+
+<div class="container gallery-container">
+
+    <h1>{{ protected_page.heading }}</h1>
+    {% if protected_page.subheading %}<h2>{{ protected_page.subheading }}</h2>{% endif %}
+
+    <p class="page-description text-center">{% autoescape off %}{{ protected_page.paragraph }}{% endautoescape %}</p>
+
+    <div class="tz-gallery">
+
+        <div class="row">
+{% for image_item in protected_page.image_set.all %}
+            <div class="{% if forloop.first %}col-sm-12 col-md-4{% elif forloop.counter0|divisibleby:3 %}col-sm-12 col-md-8{% else %}col-sm-6 col-md-4{% endif %}">
+                <a class="lightbox" href="{{ image_item.image.url }}">
+                    <img src="{{ image_item.image.url }}" alt="{{ image_item.image }}">
+                </a>
+            </div>
+{% endfor %}
+
+
+        </div>
+
+    </div>
+
+</div>

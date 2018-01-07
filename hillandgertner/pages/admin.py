@@ -9,15 +9,15 @@ from hillandgertner.protected_pages.models import ImageGallery, PDFpage
 
 class ImageGalleryManagerInline(admin.TabularInline):
   model=ImageGallery
-  fields=("page_name","type")
-  readonly_fields=("page_name","type")
+  fields=("heading","type")
+  readonly_fields=("heading","type")
   max_num=0
 
 
 class PDFPageManagerInline(admin.TabularInline):
   model=PDFpage
-  fields=("page_name","type")
-  readonly_fields=("page_name","type")
+  fields=("heading","type")
+  readonly_fields=("heading","type")
   max_num=0
 
 
