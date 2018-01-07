@@ -53,6 +53,7 @@ button, button:focus {
     background-position: center top;
 
   padding-top: 30px;
+    width:100%;
 }
 .page-title h1{
 
