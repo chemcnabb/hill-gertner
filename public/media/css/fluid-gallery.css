@@ -26,7 +26,7 @@
 
 .gallery-image {
       background-size: cover;
-    background-position: center; 
+    background-position: center;
 }
 
 /* Override bootstrap column paddings */

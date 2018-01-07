@@ -27,10 +27,10 @@
 
 <div class="container gallery-container">
 
-    <h1>{{ protected_page.heading }}</h1>
-    {% if protected_page.subheading %}<h2>{{ protected_page.subheading }}</h2>{% endif %}
+    <h1 class="text-center" style="font-size:24px">{{ protected_page.heading }}</h1>
+    {% if protected_page.subheading %}<h3 class="text-center" style="color:#6b6a6a;padding-right:24px;">{{ protected_page.subheading }}</h3>{% endif %}
 
-    <p class="page-description text-center">{% autoescape off %}{{ protected_page.paragraph }}{% endautoescape %}</p>
+    <div style="padding-right:24px">{% autoescape off %}{{ protected_page.paragraph }}{% endautoescape %}</div>
 
     <div class="tz-gallery">
 
