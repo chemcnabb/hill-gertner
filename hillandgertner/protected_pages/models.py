@@ -29,9 +29,10 @@ class GalleryManager(models.Manager):
 class Image(models.Model):
     image = models.ImageField(blank=True, null=True)
     gallery = models.ForeignKey('ImageGallery', blank=True, null=True)
+    order = models.IntegerField(default=0)
 
     class Meta:
-        ordering = ("image",)
+        ordering = ("order",)
 
 
 
