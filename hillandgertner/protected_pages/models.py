@@ -30,6 +30,9 @@ class Image(models.Model):
     image = models.ImageField(blank=True, null=True)
     gallery = models.ForeignKey('ImageGallery', blank=True, null=True)
 
+    class Meta:
+        ordering = ("image",)
+
 
 
 class ProtectedPage(models.Model):

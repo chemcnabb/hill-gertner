@@ -16,6 +16,7 @@ admin.site.register(ProtectedPage, ProtectedPageAdmin)
 
 class ImageInline(admin.TabularInline):
     model = Image
+    ordering = ("image",)
 
 class GalleryPageAdmin(admin.ModelAdmin):
     list_display = ('heading', 'parent_page', 'order')
