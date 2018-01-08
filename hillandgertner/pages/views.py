@@ -13,7 +13,7 @@ if not debug:
 class IndexView(TemplateView):
     template_name = 'main.html'
     pages = Page.objects.order_by('order')
-    protected_pages = ProtectedPage.objects.order_by('order')
+
     try:
         globals = Globals.objects.first() if Globals else debug
     except:
