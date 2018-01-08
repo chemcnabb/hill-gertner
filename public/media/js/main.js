@@ -19,6 +19,17 @@ $(document).ready(function () {
 });
 
 
+$(document).ready(function() {
+   $('#loginModal').on('show.bs.modal', function(e) {
+
+    //get data-id attribute of the clicked element
+    var pageId = $(e.relatedTarget).data('page-id');
+
+    //populate the textbox
+    var target = $(e.currentTarget).find('input[name="next"]');
+    target.val(target.val() + "#" + pageId);
+});
+});
 // $(document).ready(function() {
 
 // init controller
