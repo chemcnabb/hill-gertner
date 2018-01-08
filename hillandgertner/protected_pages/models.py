@@ -66,6 +66,7 @@ class PDFpage(ProtectedPage):
     objects = PDFManager()
     class Meta:
         proxy = True
+        ordering = ("order",)
         verbose_name = "PDF page"
         verbose_name_plural = "PDF pages"
 
@@ -76,6 +77,7 @@ class ImageGallery(ProtectedPage):
     objects = GalleryManager()
     class Meta:
         proxy = True
+        ordering = ("order",)
         verbose_name = "Image gallery"
         verbose_name_plural = "Image galleries"
 
