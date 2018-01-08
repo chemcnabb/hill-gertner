@@ -19,12 +19,12 @@ PAGE_TYPES = (
 class PDFManager(models.Manager):
     def get_queryset(self):
         return super(PDFManager, self).get_queryset().filter(
-            type='pdf')
+            type='pdf').order_by('order')
 
 class GalleryManager(models.Manager):
     def get_queryset(self):
         return super(GalleryManager, self).get_queryset().filter(
-            type='gallery')
+            type='gallery').order_by('order')
 
 class Image(models.Model):
     image = models.ImageField(blank=True, null=True)
