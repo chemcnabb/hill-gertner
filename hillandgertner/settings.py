@@ -30,7 +30,7 @@ SECRET_KEY = 'hmf7bytj%6dq(q-xvs@mhu+_o^6(ffg8&a@s%_#iu8&*=1)dz5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 if no_local:
-    ALLOWED_HOSTS = ['hillandgertner.com', 'www.hillandgertner.com']
+    ALLOWED_HOSTS = ['lornegertner.com', 'www.lornegertner.com']
 
 
 # Application definition
