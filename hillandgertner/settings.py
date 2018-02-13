@@ -92,10 +92,10 @@ if no_local:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'hillgertner',
+            'NAME': 'lornergertner',
             'USER': 'lorger2',
             'PASSWORD': 'enrol2015',
-            'HOST': 'mysql.hillandgertner.com',
+            'HOST': 'mysql.lornegertner.com',
             'PORT': '3306',
         }
     }
