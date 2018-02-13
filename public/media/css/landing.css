@@ -37,7 +37,7 @@
 }
 .landing-header{
     align-self: center;
-    top: 28vh;
+    top: 33vh;
     position: relative;
 
 
@@ -54,6 +54,8 @@
     padding: 10px 10px 10px 10px;
     color:#fff;
     /*border:1px solid #ed1718;*/
+    text-transform: capitalize;
+  text-align: center;
 }
 
 .landing-down-arrow{
