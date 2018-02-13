@@ -331,11 +331,7 @@ ul#mobile-nav-drawer {
 
 
 
-.active{
-    /*color: white;*/
-    /*background-color: rgba(100,100,100,1);*/
-    border-left: thick solid #ed1718;
-}
+
 li.active a {
     margin-left:-5px;
     /*color:#ed1718 !important;*/
