@@ -27,4 +27,7 @@ class IndexView(TemplateView):
             context['content_margin'] = ((len(self.pages)+1)*float(self.globals.header_height))-(len(self.pages)/2)-1
             context['header_height_adjusted'] = float(self.globals.header_height)-1
             context['globals'] = self.globals
+            context['header_text'] = "B.Arch., MRAIC. Business Builder. Community Builder. City Builder."
+            context['logo'] = "/media/LGlogo.svg"
+            context['prime_color'] = "#727272"
         return context

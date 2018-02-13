@@ -91,7 +91,7 @@ hr{
 h1 {
     padding-top: 11px;
     margin-top: 39px;
-    border-top: 1px solid #efc2c2;
+    /*border-top: 1px solid #efc2c2;*/
     text-align: right;
     text-transform: uppercase;
 
@@ -115,18 +115,7 @@ strong{
     font-weight:500 !important;
 }
 
-a:link{
-    color:#d30000;
-}
-a:visited{
-    color:#d30000;
-}
-a:hover{
-    color:#fff;
-}
-a:active{
-    color:#d30000;
-}
+
 
 /*
  * Sidebar
@@ -165,7 +154,7 @@ a:active{
 
 
 .header-logo {
-    background-color:#d30000 !important;
+
 top:-20px;
     position: relative;
     display:table;
@@ -311,7 +300,7 @@ ul#mobile-nav-drawer {
 
 .mobile-header-logo li{
       text-align: center;
-  background-color: #d30000;
+
 }
 .page-scroll{
     /*position: absolute;*/
@@ -355,8 +344,7 @@ li.active a {
 
 .btn-primary{
 color:#fff;
-    background-color:#d30000;
-    border-color:#d30000;
+
 }
 
 .btn-primary:hover {

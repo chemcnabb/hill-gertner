@@ -23,6 +23,31 @@
     <link href="/media/css/breaks.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
     <link href="/media/css/fluid-gallery.css" rel="stylesheet">
+<style>
+    .btn-primary{
+            background-color:{{ prime_color }};
+    border-color:{{ prime_color }};
+    }
+    .header-logo {
+        background-color: {{ prime_color }} !important;
+    }
+    .mobile-header-logo li {
+
+        background-color: {{ prime_color }};
+    }
+    a:link{
+    color:{{ prime_color }};
+}
+a:visited{
+    color:{{ prime_color }};
+}
+a:hover{
+    color:#fff;
+}
+a:active{
+    color:{{ prime_color }};
+}
+</style>
     {% block extra_CSS %}{% endblock %}
 </head>
 
