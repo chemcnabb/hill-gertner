@@ -154,7 +154,9 @@ strong{
 
 
 .header-logo {
-
+background-position:center;
+    background-repeat:no-repeat;
+    background-size:75%;
 top:-20px;
     position: relative;
     display:table;
